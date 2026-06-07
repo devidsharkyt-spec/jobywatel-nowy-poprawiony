@@ -1,0 +1,495 @@
+
+body {
+    background-color: #111218;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    width: 100%;
+    max-width: none;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    position: relative;
+}
+
+body.login_screen::after{
+    position: fixed;
+    top: max(30px, env(safe-area-inset-top));
+    right: max(10px, env(safe-area-inset-right));
+    z-index: 9999;
+    padding: 8px 17px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+html, body {
+  background-color: #111218; 
+  color: #111218;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+  overflow: hidden;
+}
+
+* {
+    color: #111218;
+    box-sizing: border-box;
+
+}
+.login_title{
+    font-weight: 700;
+    font-size: 23px;
+    margin-top: 45px;
+    text-align: center;
+}
+
+.password_box{
+    width: 94%;
+    margin-top: 20px;
+    height: 165px;
+    background-color: var(--background2);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    border-radius: 18px;
+    display: none;
+}
+
+body.password_mode .password_box{
+    display: block;
+}
+
+.password_corner_logo{
+    display: none;
+    position: absolute;
+    top: max(34px, env(safe-area-inset-top));
+    left: max(22px, env(safe-area-inset-left));
+    z-index: 4;
+    width: 62px;
+    height: 62px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+}
+
+body.password_mode .password_corner_logo{
+    display: block;
+}
+
+body.password_mode .top_grid{
+    visibility: hidden;
+}
+
+.biometric_panel{
+    appearance: none;
+    border: none;
+    background: transparent;
+    width: 95%;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: max-content;
+    justify-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 52%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+body.password_mode .biometric_panel{
+    display: none;
+}
+
+.biometric_icon{
+    width: 156px;
+    height: 156px;
+    fill: none;
+    stroke: #4fc3ff;
+    stroke-width: 7.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 10px rgba(79,195,255,0.2));
+}
+
+.fingerprint_icon{
+    fill: none;
+    stroke: #4fc3ff;
+    stroke-width: 5.6;
+}
+
+.fingerprint_icon path{
+    vector-effect: non-scaling-stroke;
+}
+
+.faceid_icon{
+    display: none;
+}
+
+body.ios_device .fingerprint_icon{
+    display: none;
+}
+
+body.ios_device .faceid_icon{
+    display: block;
+}
+
+.biometric_hint{
+    color: rgba(255,255,255,0.84);
+    font-size: 22px;
+    line-height: 1.25;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.password_grid{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    height: max-content;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.password_text{
+    width: 100%;
+    text-align: left;
+    font-size: 15px;
+    opacity: 0.7;
+    margin-top: 20px;
+    margin-bottom: 2px;
+    z-index: 1;
+    color:rgb(255, 255, 255)
+}
+
+.input_holder{
+    position: relative;
+}
+
+.eye{
+    background-image: url('https://i.imgur.com/xWoVvtX.png');
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.eye_close{
+    background-image: url('https://i.imgur.com/himy51O.png');
+}
+
+.password_input{
+    width: 100%;
+    height: 65px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid rgb(128, 128, 128);
+    padding: 15px;
+    font-size: 15px;
+    z-index: 0;
+    background-color: var(--background2)
+}
+
+.password_input:focus{
+    border: 2px solid var(--text);
+    caret-color: var(--text);
+    display: block;
+    z-index: 0;
+}
+
+.forgot_password{
+    color: var(--text);
+    font-size: 15px;
+    margin-top: 17px;
+    margin-right: auto;
+    margin-left: 2px;
+    font-weight: 500;
+}
+
+.bottom{
+    display: grid;
+    grid-template-columns: 100%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    grid-template-rows: max-content max-content;
+    position: absolute;
+    bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: auto;
+}
+
+.login{
+    color: var(--background);
+    line-height: 60px;
+    text-align: center;
+    font-weight: 550;
+    font-size: 23px;
+    width: 100%;
+    background-color: var(--text);
+    height: 60px;
+    border-radius: 40px;
+    margin-bottom: 14px;
+    display: none;
+}
+
+body.password_mode .login{
+    display: block;
+}
+
+.biometric_login{
+    color: var(--text);
+    line-height: 56px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 22px;
+    width: 100%;
+    border: 1.5px solid var(--text);
+    height: 56px;
+    border-radius: 18px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.biometric_status{
+    color: rgba(255,255,255,0.68);
+    min-height: 18px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+body.password_mode .biometric_status{
+    display: none;
+}
+
+.data{
+    height: max-content;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.logo_text{
+    margin-top: auto;
+    z-index: 0;
+    margin-bottom: auto;
+    height: max-content;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.welcome{
+    z-index: 0;
+    font-weight: 600;
+    font-size: 38px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: max-content;
+    margin-top: 25px;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://i.imgur.com/YnVrx0r.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login_text{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: max-content;
+    opacity: 0.8;
+    font-size: 22px;
+    z-index: 0;
+}
+
+.top_grid{
+    margin-top: 68px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 100%;
+    height: max-content;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top_text{
+    display: grid;
+    grid-template-columns: 100%;
+    width: 93%;
+    height: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-rows: max-content max-content;
+    margin-bottom: 5px;
+    z-index: 0;
+}
+
+.logo{
+    width: 55px;
+    z-index: 0;
+}
+
+.logo_other{
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    margin-left: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.version {
+    opacity: 0.5;
+    font-size: 14px;
+    width: max-content;   
+    margin: 0 auto;       
+    display: block;       
+    text-align: center;   
+}
+
+@media (max-height: 780px) {
+    .biometric_panel{
+        top: 50%;
+    }
+
+    .biometric_icon{
+        width: 132px;
+        height: 132px;
+    }
+
+    .biometric_hint{
+        font-size: 20px;
+        margin-top: 24px;
+    }
+}
+
+@media (min-width: 700px) {
+    html{
+        background-color: #05070b;
+    }
+
+    body{
+        width: 430px;
+        max-width: 430px;
+        margin: 0 auto;
+        height: 100vh;
+        height: 100svh;
+        box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 0 44px rgba(0,0,0,0.45);
+    }
+
+    body.login_screen::after{
+        position: absolute;
+        right: 10px;
+    }
+}
+
+body.login_screen:not(.password_mode){
+    width: 100vw !important;
+    max-width: none !important;
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    background: #111218;
+    box-shadow: none !important;
+}
+
+body.login_screen:not(.password_mode)::after{
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+}
+
+.biometric_png_stage{
+    position: fixed;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    --biometric-png-ratio: 0.52989;
+    height: min(100dvh, calc(100vw / var(--biometric-png-ratio)), 1011px);
+    aspect-ratio: 913 / 1723;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background: #111218;
+}
+
+.biometric_png_screen{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    user-select: none;
+}
+
+.png_hotspot{
+    position: absolute;
+    z-index: 5;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.png_biometric_hotspot{
+    left: 0;
+    top: 37%;
+    width: 100%;
+    height: 30%;
+}
+
+.png_password_hotspot{
+    left: 5.4%;
+    top: 79.7%;
+    width: 89.2%;
+    height: 7.7%;
+}
+
+body.login_screen:not(.password_mode) .background,
+body.login_screen:not(.password_mode) .password_corner_logo,
+body.login_screen:not(.password_mode) .top_grid,
+body.login_screen:not(.password_mode) .top_text,
+body.login_screen:not(.password_mode) .biometric_panel,
+body.login_screen:not(.password_mode) .password_box,
+body.login_screen:not(.password_mode) .bottom{
+    display: none !important;
+}
+
+body.password_mode .biometric_png_stage{
+    display: none;
+}

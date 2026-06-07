@@ -1,0 +1,418 @@
+body {
+    background-color: #101317;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+html,
+body {
+    background-color: #101317;
+    color: #111218;
+    touch-action: manipulation;
+    overscroll-behavior: none;
+    overflow: hidden;
+}
+
+html body {
+    background-color: #101317;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.documents_png_stage {
+    position: fixed;
+    z-index: 0;
+    left: 50%;
+    top: 0;
+    width: min(100vw, 430px);
+    height: 100vh;
+    height: 100dvh;
+    transform: translateX(-50%);
+    overflow: hidden;
+    background: #101317;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.035), 0 0 44px rgba(0, 0, 0, 0.34);
+}
+
+.documents_png_stage::after {
+    display: none;
+}
+
+.documents_png_screen {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    user-select: none;
+}
+
+.documents_hotspot {
+    position: absolute;
+    z-index: 8;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+}
+
+.doc_mdowod_hotspot {
+    left: 4.5%;
+    top: 22.0%;
+    width: 91.0%;
+    height: 9.4%;
+}
+
+.doc_student_hotspot {
+    left: 4.5%;
+    top: 30.0%;
+    width: 91.0%;
+    height: 34.5%;
+}
+
+.doc_add_hotspot {
+    left: 42.0%;
+    top: 76.2%;
+    width: 53.8%;
+    height: 8.2%;
+}
+
+.nav_docs_hotspot,
+.nav_services_hotspot,
+.nav_qr_hotspot,
+.nav_search_hotspot,
+.nav_more_hotspot {
+    top: 88.4%;
+    height: 11.6%;
+}
+
+.nav_docs_hotspot {
+    left: 0;
+    width: 20%;
+}
+
+.nav_services_hotspot {
+    left: 20%;
+    width: 20%;
+}
+
+.nav_qr_hotspot {
+    left: 40%;
+    width: 20%;
+}
+
+.nav_search_hotspot {
+    left: 60%;
+    width: 20%;
+}
+
+.nav_more_hotspot {
+    left: 80%;
+    width: 20%;
+}
+
+body > .bottom_bar {
+    display: none;
+}
+
+.container > .top_grid,
+.container > .card_grid,
+.container > .stack {
+    display: none !important;
+}
+
+.top_grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.top_image {
+    width: 43px;
+}
+
+.right {
+    margin-right: 0;
+    margin-left: auto;
+    width: 37px;
+}
+
+.card_grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr max-content max-content;
+    align-items: end;
+    column-gap: 22px;
+}
+
+.title {
+    color: var(--font);
+    font-size: 35px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 450;
+    margin-top: 65px;
+    margin-bottom: 18px;
+    color: var(--text);
+}
+
+.plain_button {
+    border: 0;
+    background: transparent;
+    font: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.stack {
+    position: relative;
+    width: 98%;
+    --card-height: calc(min(100vw, 430px) * 0.95 * 0.98 * 2 / 3);
+    height: var(--card-height);
+    transition: height 180ms ease;
+}
+
+.stack.has_student {
+    height: calc(var(--card-height) + 88px);
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: var(--card-height);
+    aspect-ratio: 3 / 2;
+    border-radius: 17px;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    font-family: "Roboto", Arial, sans-serif;
+    font-weight: 600;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.26);
+}
+
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    display: none;
+}
+
+.mdowod_card {
+    z-index: 1;
+    background: none;
+}
+
+.mdowod_card::before {
+    inset: 0;
+    opacity: 0.22;
+    background:
+        repeating-radial-gradient(circle at 18% 118%, rgba(255,255,255,0.34) 0 1px, transparent 2px 9px),
+        radial-gradient(circle at 80% 18%, rgba(255,255,255,0.14), transparent 28%);
+}
+
+.mdowod_card::after {
+    right: -34px;
+    top: 8px;
+    width: 230px;
+    height: 230px;
+    opacity: 0.075;
+    background: url("godlo-eagle-clean.png") center / contain no-repeat;
+}
+
+.stack.has_student .mdowod_card {
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: var(--card-height);
+    opacity: 1;
+    transform: none;
+}
+
+.student_card {
+    display: none;
+    top: 88px;
+    z-index: 2;
+    height: var(--card-height);
+    background: none;
+}
+
+.student_card::before {
+    inset: 0;
+    opacity: 0.34;
+    background:
+        repeating-radial-gradient(circle at 7% 100%, rgba(255,255,255,0.42) 0 1px, transparent 2px 9px),
+        repeating-radial-gradient(circle at 92% 10%, rgba(255,255,255,0.26) 0 1px, transparent 2px 8px);
+}
+
+.student_card::after {
+    inset: 0;
+    opacity: 0.13;
+    background:
+        radial-gradient(ellipse at 50% 45%, transparent 0 34%, rgba(255,255,255,0.42) 34.5% 35%, transparent 35.5%),
+        radial-gradient(ellipse at 50% 45%, transparent 0 49%, rgba(255,255,255,0.35) 49.5% 50%, transparent 50.5%);
+}
+
+.stack.has_student .student_card {
+    display: block;
+}
+
+.stack .mdowod_card:hover {
+    top: -8px;
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.10);
+    transition:
+        top 0.3s cubic-bezier(.4,2,.6,1),
+        transform 0.5s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.5s;
+}
+
+.stack.has_student .student_card:hover {
+    top: 80px;
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.10);
+    transition:
+        top 0.3s cubic-bezier(.4,2,.6,1),
+        transform 0.5s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.5s;
+}
+
+.cardcontent {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 20px;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #ffffff;
+    z-index: 3;
+}
+
+.card_image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    user-select: none;
+}
+
+.logo {
+    display: none;
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    z-index: 4;
+    width: 42px;
+    height: 42px;
+    padding: 7px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: rgba(222, 244, 255, 0.22);
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.14),
+        0 2px 8px rgba(0,0,0,0.12);
+    backdrop-filter: blur(2px);
+}
+
+.add_panel {
+    display: none;
+    position: fixed;
+    left: 2.5%;
+    right: 2.5%;
+    bottom: calc(90px + env(safe-area-inset-bottom));
+    z-index: 5;
+    padding: 16px;
+    border-radius: 22px;
+    background: var(--background2);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.add_panel.open {
+    display: block;
+}
+
+.add_panel_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.add_panel_header p {
+    color: var(--font);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.add_panel_header button {
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    color: var(--font);
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 24px;
+}
+
+.add_document_item {
+    width: 100%;
+    min-height: 74px;
+    border: 0;
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.06);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    text-align: left;
+}
+
+.add_icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: #198df5;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.add_document_item strong {
+    display: block;
+    color: var(--font);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.add_document_item small {
+    display: block;
+    color: #a9adb5;
+    font-size: 14px;
+    margin-top: 4px;
+}
