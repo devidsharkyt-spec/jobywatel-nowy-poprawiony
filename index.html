@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mObywatel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: white;
+            font-family: Roboto, Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+        body::after {
+            position: fixed;
+            top: max(14px, env(safe-area-inset-top));
+            right: max(14px, env(safe-area-inset-right));
+            z-index: 9999;
+            padding: 5px 10px;
+            border-radius: 999px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0;
+            pointer-events: none;
+        }
+        .container {
+            padding-top: 100px;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #007AFF, #00C853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .button {
+            background: #007AFF;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 19px;
+            border-radius: 14px;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">mObywatel</div>
+        <h2>Wersja 4.0</h2>
+        <p>Kliknij poniżej aby zacząć</p>
+        
+        <button class="button" onclick="window.location.href='app.html'">WEJDŹ DO APLIKACJI</button>
+    </div>
+</body>
+</html>
